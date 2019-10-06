@@ -56,21 +56,26 @@ namespace CajaBanco
                         idCajero = "Cajero No.: " + id.ToString();
                         nomSucursal = "Sucursal: " +  sucs.GetNomSucById((int)user["IdSuc"]).ToString();
 
+                        MainWindow.log.Info($"Inicio de sesion exitoso. Id: {usuario.Text}");
+
                         mainWin.menu = new Menu(mainWin);
                         mainWin.Content = mainWin.menu;
                     }
                     else
                     {
+                        MainWindow.log.Info($"Inicio de sesion fallido. Clave incorrecta. Id: {usuario.Text}");
                         MessageBox.Show("Credenciales invalidos.");
                     }
                 }
                 else
                 {
+                    MainWindow.log.Info($"Inicio de sesion fallido. Id invalido: {usuario.Text}");
                     MessageBox.Show("Credenciales invalidos.");
                 }
             }
             else
             {
+                MainWindow.log.Info($"Inicio de sesion fallido. Id no numerico: {usuario.Text}");
                 MessageBox.Show("Credenciales invalidos.");
             }           
         }

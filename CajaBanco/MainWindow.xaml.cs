@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,12 +34,15 @@ namespace CajaBanco
         public Transaccion transaccion;
         public InicioDia inicioDia;
 
+        public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        
 
         public MainWindow()
         {
             InitializeComponent();
+            log4net.Config.XmlConfigurator.Configure();
+            log.Info("Inicio la aplicacion");
+
 
             login = new Login(this);
             this.Content = login;
