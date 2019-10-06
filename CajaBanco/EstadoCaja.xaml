@@ -1,0 +1,29 @@
+﻿<Page x:Class="CajaBanco.EstadoCaja"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CajaBanco"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EstadoCaja">
+
+    <Grid>
+        <DataGrid x:Name="DgEstado" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="Estado de Caja" VerticalAlignment="Top" FontSize="24"/>
+
+
+
+        <Grid>
+            <Button x:Name="btCliente" Content="Menu [Esc]" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="BtCliente_Click"/>
+            <Ellipse x:Name="estadoConexion" Fill="#FF32FF32" HorizontalAlignment="Left" Height="30" Margin="10,0,0,10" Stroke="Black" VerticalAlignment="Bottom" Width="30"/>
+
+
+        </Grid>
+        <Grid>
+
+            <TextBlock x:Name="tbCajero" Text="[id cajero]" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10"/>
+            <TextBlock x:Name="tbSucursal" Text="[sucursal]" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,31"/>
+        </Grid>
+    </Grid>
+</Page>

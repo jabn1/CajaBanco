@@ -1,0 +1,36 @@
+﻿<Page x:Class="CajaBanco.Menu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CajaBanco"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      KeyDown="Window_KeyDown"
+      Focusable="True"
+      Title="Menu">
+    <Grid>
+    <Grid HorizontalAlignment="Center">
+        <Button x:Name="btInicioDia" Content="Inicio del dia [F1]" HorizontalAlignment="Center" Margin="322,150,294,0" VerticalAlignment="Top" Width="184" Click="BtInicioDia_Click" />
+        <Button x:Name="btCierreDia" Content="Cierre del dia [F2]" HorizontalAlignment="Center" Margin="322,200,294,0" VerticalAlignment="Top" Width="184" Click="BtCierreDia_Click" />
+        <Button x:Name="btValidarCliente" Content="Validar cliente [F3]" HorizontalAlignment="Center" Margin="322,250,294,0" VerticalAlignment="Top" Width="184" Click="BtValidarCliente_Click" />
+        <Button x:Name="btEstadoCaja" Content="Estado de caja [F4]" HorizontalAlignment="Center" Margin="322,300,294,0" VerticalAlignment="Top" Width="184" Click="BtEstadoCaja_Click"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,59,0,0" TextWrapping="Wrap" Text="Opciones:" VerticalAlignment="Top" FontSize="36"/>
+        
+        
+        <Button x:Name="btTransFuera" Content="Transacciones fuera de linea [F5]" HorizontalAlignment="Center" Margin="322,350,294,0" VerticalAlignment="Top" Width="184"/>
+
+    </Grid>
+        <Grid>
+            <Ellipse x:Name="estadoConexion" Fill="#FF32FF32" HorizontalAlignment="Left" Height="30" Margin="10,0,0,10" Stroke="Black" VerticalAlignment="Bottom" Width="30"/>
+        </Grid>
+        <Grid>
+            <Button x:Name="btCerrar" Content="Cerrar Sesion [Esc]" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="115" Click="BtCerrar_Click" />
+        </Grid>
+        <Grid>
+
+            <TextBlock x:Name="tbCajero" Text="[id cajero]" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10"/>
+            <TextBlock x:Name="tbSucursal" Text="[sucursal]" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,31"/>
+        </Grid>
+    </Grid>
+</Page>
