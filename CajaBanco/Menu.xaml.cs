@@ -147,6 +147,11 @@ namespace CajaBanco
 
         private void BtEstadoCaja_Click(object sender, RoutedEventArgs e)
         {
+            if (!HayDiaIniciado)
+            {
+                MessageBox.Show("No existe un dia iniciado.");
+                return;
+            }
             mainWin.estado = new EstadoCaja(mainWin);
             mainWin.Content = mainWin.estado;
         }

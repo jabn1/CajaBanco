@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CajaBanco"
         mc:Ignorable="d"
-        Title="APLICACION DE CAJA BANCO 4" Height="450" Width="800" WindowState="Maximized">
-    
-    
+        
+        Title="APLICACION DE CAJA BANCO 4" Height="450" Width="800" WindowState="Maximized" Foreground="Black">
+    <Window.Background>
+        <VisualBrush TileMode="Tile" Viewport="0,0,0.125,0.125">
+            <VisualBrush.Visual>
+                <Image UseLayoutRounding="True" d:DesignUseLayoutRounding="True" Source="backgroundCaja.png"/>
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </Window.Background>
 </Window>

@@ -7,6 +7,7 @@
       xmlns:WinForms="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" x:Class="CajaBanco.Reporte"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      KeyDown="Window_KeyDown"
       Title="Reporte">
 
     <Grid>

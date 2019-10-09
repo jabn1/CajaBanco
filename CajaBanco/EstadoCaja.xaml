@@ -6,10 +6,29 @@
       xmlns:local="clr-namespace:CajaBanco"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      KeyDown="Window_KeyDown"
       Title="EstadoCaja">
 
     <Grid>
-        <DataGrid x:Name="DgEstado" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="DgEstado" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top"
+          ItemsSource="{Binding datos}" AutoGenerateColumns="False" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" HeadersVisibility="Column" >
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Dia No." Binding="{Binding IdDia}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Total en caja RD$" Binding="{Binding TotalCaja}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 2000" Binding="{Binding Bm2000}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 1000" Binding="{Binding Bm1000}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 500" Binding="{Binding Bm500}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 200" Binding="{Binding Bm200}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 100" Binding="{Binding Bm100}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 50" Binding="{Binding Bm50}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 25" Binding="{Binding Bm25}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 10" Binding="{Binding Bm10}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 5" Binding="{Binding Bm5}"></DataGridTextColumn>
+                <DataGridTextColumn Header="RD$ 1" Binding="{Binding Bm1}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
         <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="Estado de Caja" VerticalAlignment="Top" FontSize="24"/>
 
 

@@ -51,7 +51,8 @@ namespace CajaBanco
         public InicioDia(MainWindow mainWindow):this()
         {
             mainWin = mainWindow;
-
+            tbCajero.Text = mainWin.login.idCajero;
+            tbSucursal.Text = mainWin.login.nomSucursal;
         }
 
 
@@ -97,10 +98,7 @@ namespace CajaBanco
                     KeyPressFxx(tb1p);
                     break;
                 case Key.F11:
-                    // TO DO realizar transaccion
-                    break;
-                case Key.F12:
-                    // TO DO imprimir
+                    BtIniciar_Click(null, null);
                     break;
                 case Key.Escape:
                     BtCliente_Click(null, null);

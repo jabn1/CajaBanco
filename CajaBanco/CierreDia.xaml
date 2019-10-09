@@ -6,11 +6,12 @@
       xmlns:local="clr-namespace:CajaBanco"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      KeyDown="Window_KeyDown"
       Title="CierreDia">
 
     <Grid>
         <Button x:Name="BtConfirmarCierre" Content="Confirmar Cierre del Dia" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" Width="153" Height="47" Click="BtConfirmarCierre_Click"/>
-        <Button x:Name="BtMenu" Content="[Esc] Menu" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="BtMenu" Content="[Esc] Menu" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="BtMenu_Click"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,114,0,0" TextWrapping="Wrap" Text="[F1]" VerticalAlignment="Top"/>
 
     </Grid>

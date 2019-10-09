@@ -233,6 +233,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="comeOn.png" />
+    <Resource Include="backgroundCaja.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="DBAppCaja.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

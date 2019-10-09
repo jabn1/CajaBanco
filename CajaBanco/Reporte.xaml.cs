@@ -93,5 +93,16 @@ namespace CajaBanco
         {
             mainWin.Content = mainWin.menu;
         }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+
+                case Key.Escape:
+                    BtMenu_Click(null, null);
+                    break;
+
+            }
+        }
     }
 }

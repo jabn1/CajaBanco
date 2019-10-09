@@ -57,7 +57,7 @@ namespace CajaBanco
                         idCajeroInt = id;
                         idCajero = "Cajero No.: " + id.ToString();
                         idSucursal = (int)user["IdSuc"];
-                        nomSucursal = "Sucursal: " +  sucs.GetNomSucById(idSucursal).ToString();
+                        nomSucursal = "Sucursal: " + idSucursal.ToString()+ " - " +  sucs.GetNomSucById(idSucursal).ToString();
 
                         MainWindow.log.Info($"Inicio de sesion exitoso. Id: {usuario.Text}");
 

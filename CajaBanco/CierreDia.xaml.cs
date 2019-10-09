@@ -62,5 +62,26 @@ namespace CajaBanco
                 }
             }
         }
+
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.F1:
+                    BtConfirmarCierre_Click(null, null);
+                    break;
+                
+                case Key.Escape:
+                    BtMenu_Click(null, null);
+                    break;
+
+            }
+        }
+
+        private void BtMenu_Click(object sender, RoutedEventArgs e)
+        {
+            mainWin.Content = mainWin.menu;
+        }
     }
 }
