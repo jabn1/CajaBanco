@@ -9,7 +9,12 @@ namespace CajaBanco
     public enum TiposAccion
     {
         InicioDelDia = 1,
-        CierreDelDia = 2
+        CierreDelDia = 2,
+        Deposito = 3,
+        Retiro = 4,
+        DepositoFueraLinea = 5,
+        RetiroFueraLinea =6
+
     }
     public enum TiposEstadoDia
     {

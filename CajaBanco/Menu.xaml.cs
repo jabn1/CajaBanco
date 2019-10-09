@@ -25,15 +25,18 @@ namespace CajaBanco
         MainWindow mainWin;
         bool hayDiaIniciado;
         EfectivoEnCaja efectivoCaja;
+        bool hayConexion;
+
 
         public EfectivoEnCaja EfectivoCaja { get => efectivoCaja; set => efectivoCaja = value; }
         public bool HayDiaIniciado { get => hayDiaIniciado; set => hayDiaIniciado = value; }
+        public bool HayConexion { get => hayConexion; set => hayConexion = value; }
 
         public Menu()
         {
             InitializeComponent();
 
-           
+            RevisarConexion();
             Focus();
             
         }
@@ -86,6 +89,11 @@ namespace CajaBanco
 
         private void BtValidarCliente_Click(object sender, RoutedEventArgs e)
         {
+            if (!HayDiaIniciado)
+            {
+                MessageBox.Show("No existe un dia iniciado.");
+                return;
+            }
             mainWin.valCliente = new ValidarCliente(mainWin);
             mainWin.Content = mainWin.valCliente;
         }
@@ -109,7 +117,7 @@ namespace CajaBanco
                     BtValidarCliente_Click(null,null);
                     break;
                 case Key.F4:
-
+                    BtEstadoCaja_Click(null, null);
                     break;
                 case Key.F5:
 
@@ -155,5 +163,15 @@ namespace CajaBanco
             mainWin.estado = new EstadoCaja(mainWin);
             mainWin.Content = mainWin.estado;
         }
+
+        public void RevisarConexion()
+        {
+            // Aqui va el codigo que llama al web service dummy para revisar si hay conexion 
+            // con la capa de integracion
+            // Ahora mismo solo pone false
+
+            hayConexion = false;
+        }
+
     }
 }

@@ -22,15 +22,13 @@ namespace CajaBanco
     {
         MainWindow mainWin;
         private Dictionary<string,string> datosCliente;
+        public Cliente cliente;
         public ResultadosValidarCliente()
         {
             InitializeComponent();
             Focus();
 
-            datosCliente = new Dictionary<string, string>() { {"Cliente:","Juan Perez" },{"Cedula:","0019999992" },{ "Estado:","Normal"} };
-            dgDatosCliente.ItemsSource = datosCliente;
-            var cuentasCliente = new List<string>() { "000100001", "000100002", "000100003" };
-            dgCuentas.ItemsSource = cuentasCliente;
+            
 
 
             var fotoCliente = new BitmapImage();
@@ -47,15 +45,36 @@ namespace CajaBanco
 
 
         }
-        public ResultadosValidarCliente(MainWindow mainWindow):this()
+        public ResultadosValidarCliente(MainWindow mainWindow, Cliente clienteR):this()
         {
             mainWin = mainWindow;
+            this.cliente = clienteR;
+
+            datosCliente = new Dictionary<string, string>() { { "Cliente:", $"{cliente.Apellidos}, {cliente.Nombres}" },
+                { "Cedula:", $"{cliente.Cedula}" }, { "Estado:", "Normal" } };
+            dgDatosCliente.ItemsSource = datosCliente;
+            var cuentasCliente = new List<string>() { cliente.NumeroCuenta.ToString() };
+            dgCuentas.ItemsSource = cuentasCliente;
+
+
         }
 
         private void BtDepositar_Click(object sender, RoutedEventArgs e)
         {
-            mainWin.transaccion = new Transaccion(mainWin);
+            if(cliente.NumeroCuenta == 0)
+            {
+                mainWin.transaccion = new Transaccion(mainWin, TipoTransaccion.DepositoFueraLinea);
+            }
+            else
+            {
+                mainWin.transaccion = new Transaccion(mainWin, TipoTransaccion.Deposito);
+            }
+            
             mainWin.transaccion.TipoTrans.Text = "Deposito";
+            mainWin.transaccion.tbCliente.Visibility = Visibility.Hidden;
+            mainWin.transaccion.TbCedula.Visibility = Visibility.Hidden;
+            mainWin.transaccion.tblockCed.Visibility = Visibility.Hidden;
+            mainWin.transaccion.tblockCli.Visibility = Visibility.Hidden;
             mainWin.Content = mainWin.transaccion;
         }
 
@@ -84,8 +103,28 @@ namespace CajaBanco
 
         private void BtRetirar_Click(object sender, RoutedEventArgs e)
         {
-            mainWin.transaccion = new Transaccion(mainWin);
+
+            if (cliente.NumeroCuenta == 0)
+            {
+                mainWin.transaccion = new Transaccion(mainWin, TipoTransaccion.RetiroFueraLinea);
+            }
+            else
+            {
+                mainWin.transaccion = new Transaccion(mainWin, TipoTransaccion.Retiro);
+            }
+
             mainWin.transaccion.TipoTrans.Text = "Retiro";
+
+            mainWin.transaccion.TbCedula.Text = cliente.Cedula;
+
+            mainWin.transaccion.tbCliente.Text = $"{cliente.Apellidos}, {cliente.Nombres}";
+
+            if(cliente.NumeroCuenta != 0)
+            {
+                mainWin.transaccion.tbNumCuenta.Text = cliente.NumeroCuenta.ToString();
+                mainWin.transaccion.tbNumCuenta.IsReadOnly = true;
+            }
+
             mainWin.Content = mainWin.transaccion;
         }
     }

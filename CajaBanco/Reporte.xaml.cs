@@ -25,6 +25,7 @@ namespace CajaBanco
     {
         MainWindow mainWin;
         TiposReporte tipo;
+        public ReportViewer reportViewer;
         public Reporte()
         {
             InitializeComponent();
@@ -83,6 +84,30 @@ namespace CajaBanco
 
                 this.ReportViewer1.RefreshReport();
 
+            }
+            else if(tipo == TiposReporte.TransaccionBancaria)
+            {
+                DatosReporteTrans datos = mainWin.transaccion.datosRep;
+
+
+                this.ReportViewer1.LocalReport.ReportPath = "ReportTransaccion.rdlc";
+                this.ReportViewer1.ProcessingMode = ProcessingMode.Local;
+
+
+                ReportParameter rp1 = new ReportParameter("TituloRecibo", datos.titulo);
+                ReportParameter rp2 = new ReportParameter("NombreCliente", datos.nombre);
+                ReportParameter rp3 = new ReportParameter("Sucursal", datos.sucursal);
+                ReportParameter rp4 = new ReportParameter("idCajero", datos.idCajero.ToString());
+                ReportParameter rp5 = new ReportParameter("Cuenta", datos.cuenta.ToString());
+                ReportParameter rp6 = new ReportParameter("Monto", datos.monto);
+                ReportParameter rp7 = new ReportParameter("TipoTotal", datos.tipototal);
+                ReportParameter rp8 = new ReportParameter("Fecha", datos.fecha.ToString());
+
+                ReportViewer1.LocalReport.DataSources.Clear();
+                
+                ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2, rp3,rp4,rp5,rp6,rp7,rp8 });
+
+                this.ReportViewer1.RefreshReport();
             }
 
 

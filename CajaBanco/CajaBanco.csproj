@@ -137,11 +137,13 @@
     <Compile Include="CierreDia.xaml.cs">
       <DependentUpon>CierreDia.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cliente.cs" />
     <Compile Include="DataSetDBCaja1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetDBCaja.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatosReporteTrans.cs" />
     <Compile Include="EfectivoEnCaja.cs" />
     <Compile Include="EnumsCaja.cs" />
     <Compile Include="EstadoCaja.xaml.cs">
@@ -157,6 +159,7 @@
       <DependentUpon>ResultadosValidarCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="DatosTransaccion.cs" />
     <Compile Include="Transaccion.xaml.cs">
       <DependentUpon>Transaccion.xaml</DependentUpon>
     </Compile>
@@ -205,6 +208,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTransaccion.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportCierreDia.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

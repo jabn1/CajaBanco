@@ -28,6 +28,7 @@ namespace CajaBanco
         public string nomSucursal;
         public int idCajeroInt;
         public int idSucursal;
+        public string suc;
         public Login()
         {
             InitializeComponent();
@@ -57,6 +58,7 @@ namespace CajaBanco
                         idCajeroInt = id;
                         idCajero = "Cajero No.: " + id.ToString();
                         idSucursal = (int)user["IdSuc"];
+                        suc = idSucursal.ToString() + " - " + sucs.GetNomSucById(idSucursal).ToString();
                         nomSucursal = "Sucursal: " + idSucursal.ToString()+ " - " +  sucs.GetNomSucById(idSucursal).ToString();
 
                         MainWindow.log.Info($"Inicio de sesion exitoso. Id: {usuario.Text}");
