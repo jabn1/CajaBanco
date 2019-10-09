@@ -1,8 +1,10 @@
-﻿using System;
+﻿using CajaBanco.DataSetDBCajaTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,14 +22,10 @@ namespace CajaBanco
     /// </summary>
     /// 
 
-    public enum TiposAccionDia
-    {
-        IncioDia = 0,
-        CierreDia = 1
-    }
+    
     public partial class InicioDia : Page
     {
-        private TiposAccionDia tipo;
+
         MainWindow mainWin;
         private int totalBM;
         private Dictionary<string, int> listaBM;
@@ -37,7 +35,7 @@ namespace CajaBanco
         public InicioDia()
         {
             InitializeComponent();
-            TbMonto.Focus();
+            Focus();
             listaBM = new Dictionary<string, int>();
             valoresBM = new Dictionary<string, int>();
             var denominaciones = new List<int>() { 2000, 1000, 500, 200, 100, 50, 25, 10, 5, 1 };
@@ -50,20 +48,10 @@ namespace CajaBanco
             }
             started = true;
         }
-        public InicioDia(MainWindow mainWindow, TiposAccionDia tiposAccion):this()
+        public InicioDia(MainWindow mainWindow):this()
         {
             mainWin = mainWindow;
-            tipo = tiposAccion;
-            if(tipo == TiposAccionDia.IncioDia)
-            {
-                TituloDia.Text = "Inicio del dia";
-                BtIniciar.Content = "Iniciar dia";
-            }
-            else if(tipo == TiposAccionDia.CierreDia)
-            {
-                TituloDia.Text = "Cierre del dia";
-                BtIniciar.Content = "Cerrar dia";
-            }
+
         }
 
 
@@ -164,6 +152,44 @@ namespace CajaBanco
                 tbSender.CaretIndex = int.MaxValue;
                 UpdateTotalBm();
             }
+
+        }
+
+        private void BtIniciar_Click(object sender, RoutedEventArgs e)
+        {
+            
+            DiasCajaTableAdapter diasCaja = new DiasCajaTableAdapter();
+            EstadoCajaTableAdapter estadoCaja = new EstadoCajaTableAdapter();
+            decimal totalCaja;
+            int idCajero;
+            using (TransactionScope ts = new TransactionScope())
+            {
+                                       
+                try
+                {
+                    mainWin.menu.EfectivoCaja = new EfectivoEnCaja();
+                    mainWin.menu.EfectivoCaja.InsertEfectivo(listaBM);
+                    var ef = mainWin.menu.EfectivoCaja;
+                    idCajero = mainWin.login.idCajeroInt;
+                    totalCaja = Convert.ToDecimal(totalBM);
+                    int idDia = (int)diasCaja.InsertDiasCajaGetId(DateTime.Now, DateTime.Now, Convert.ToDecimal(totalBM), totalCaja,idCajero, 1);
+                    estadoCaja.Insert(idDia,DateTime.Now,(int)TiposAccion.InicioDelDia,idCajero,totalCaja,ef.Bm2000,ef.Bm1000,ef.Bm500,ef.Bm200,ef.Bm100,ef.Bm50,ef.Bm25,ef.Bm10,ef.Bm5,ef.Bm1);
+                    mainWin.menu.HayDiaIniciado = true;
+                    mainWin.menu.EfectivoCaja.IdDia = idDia;
+                    mainWin.menu.EfectivoCaja.TotalCaja = totalCaja;
+                    MessageBox.Show("La operacion se realizo exitosamente.");
+                    mainWin.Content = mainWin.menu;
+                    ts.Complete();
+                }
+                catch
+                {
+                    MessageBox.Show("La operacion no pudo ser realizada.");
+                    MainWindow.log.Info("Error en transaccion incio de dia");
+                }                                     
+            }
+            
+
+
 
         }
     }

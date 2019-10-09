@@ -26,6 +26,8 @@ namespace CajaBanco
         public MainWindow mainWin;
         public string idCajero;
         public string nomSucursal;
+        public int idCajeroInt;
+        public int idSucursal;
         public Login()
         {
             InitializeComponent();
@@ -52,9 +54,10 @@ namespace CajaBanco
                     if (user["Clave"].ToString() == Hash(clave.Password))
                     {
                         var sucs = new SucursalesTableAdapter();
-
+                        idCajeroInt = id;
                         idCajero = "Cajero No.: " + id.ToString();
-                        nomSucursal = "Sucursal: " +  sucs.GetNomSucById((int)user["IdSuc"]).ToString();
+                        idSucursal = (int)user["IdSuc"];
+                        nomSucursal = "Sucursal: " +  sucs.GetNomSucById(idSucursal).ToString();
 
                         MainWindow.log.Info($"Inicio de sesion exitoso. Id: {usuario.Text}");
 

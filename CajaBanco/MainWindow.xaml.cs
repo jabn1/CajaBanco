@@ -33,6 +33,8 @@ namespace CajaBanco
         public ValidarCliente valCliente;
         public Transaccion transaccion;
         public InicioDia inicioDia;
+        public Reporte reporte;
+        public CierreDia cierreDia;
 
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

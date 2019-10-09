@@ -12,13 +12,11 @@
 
     <Grid Margin="0,0,0,-35">
         <Grid HorizontalAlignment="Center">
-            <TextBlock x:Name="TituloDia" HorizontalAlignment="Center" Margin="233,33,289,0" TextWrapping="Wrap" Text="{}{Titulo: ****** del dia}" VerticalAlignment="Top" FontSize="24" Width="234"/>
-            <TextBox x:Name="TbMonto" HorizontalAlignment="Left" Height="23" Margin="196,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" TabIndex="2"/>
-            <TextBlock HorizontalAlignment="Left" Margin="128,123,0,0" TextWrapping="Wrap" Text="Monto RD$:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="TituloDia" HorizontalAlignment="Center" Margin="233,33,289,0" TextWrapping="Wrap" Text="Inicio del dia" VerticalAlignment="Top" FontSize="24" Width="234"/>
             <TextBlock HorizontalAlignment="Left" Margin="27,168,0,0" TextWrapping="Wrap" Text="Total (Billetes y Monedas) RD$:" VerticalAlignment="Top"/>
             <TextBox x:Name="tbTotalBM" HorizontalAlignment="Left" Height="23" Margin="196,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" IsReadOnly="True" Focusable="False" Text="0"/>
-            <Button x:Name="BtIniciar" Content="{}{Accion}" HorizontalAlignment="Left" Margin="446,120,0,0" VerticalAlignment="Top" Width="130"/>
-            <TextBlock HorizontalAlignment="Left" Margin="496,142,0,0" TextWrapping="Wrap" Text="[F11]" VerticalAlignment="Top"/>
+            <Button x:Name="BtIniciar" Content="Iniciar Dia" HorizontalAlignment="Left" Margin="451,166,0,0" VerticalAlignment="Top" Width="130" Click="BtIniciar_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="501,188,0,0" TextWrapping="Wrap" Text="[F11]" VerticalAlignment="Top"/>
 
         </Grid>
 
@@ -32,7 +30,7 @@
             <TextBlock x:Name="tbCajero" Text="[id cajero]" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10"/>
             <TextBlock x:Name="tbSucursal" Text="[sucursal]" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,31"/>
         </Grid>
-        
+
         <Grid HorizontalAlignment="Center" Height="120" Margin="30,300,25,0" VerticalAlignment="Top" Width="745">
             <TextBox x:Name="tb2000p" HorizontalAlignment="Left" Height="23" Margin="0,39,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" TabIndex="3" TextChanged="Efectivo_TextChanged"/>
             <TextBox x:Name="tb1000p" HorizontalAlignment="Left" Height="23" Margin="75,39,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" TabIndex="4" TextChanged="Efectivo_TextChanged"/>
