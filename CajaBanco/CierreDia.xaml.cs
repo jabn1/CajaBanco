@@ -27,6 +27,7 @@ namespace CajaBanco
         public CierreDia()
         {
             InitializeComponent();
+            BtConfirmarCierre.Focus();
         }
         public CierreDia(MainWindow mainWindow):this()
         {

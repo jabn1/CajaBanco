@@ -58,6 +58,7 @@ namespace CajaBanco
             EstadoCajaTableAdapter estadoCaja = new EstadoCajaTableAdapter();
             CajerosTableAdapter cajeros = new CajerosTableAdapter();
             SucursalesTableAdapter sucursales = new SucursalesTableAdapter();
+            MovimientosCajaTableAdapter movimientos = new MovimientosCajaTableAdapter();
 
             int idCajero = mainWin.login.idCajeroInt;
             int idSuc = mainWin.login.idSucursal;
@@ -73,6 +74,8 @@ namespace CajaBanco
                 ReportDataSource SdiasCaja = new ReportDataSource("DSdiasCaja", (DataTable)diasCaja.GetDataByIdDia(idDia));
                 ReportDataSource SestadoInicio = new ReportDataSource("DSestadocajainicio", (DataTable)estadoCaja.GetDataByIdDiaAndAccion(idDia,(int)TiposAccion.InicioDelDia));
                 ReportDataSource SestadoCierre = new ReportDataSource("DSestadocajacierre", (DataTable)estadoCaja.GetDataByIdDiaAndAccion(idDia, (int)TiposAccion.CierreDelDia));
+                ReportDataSource Smov = new ReportDataSource("DSMov", (DataTable)movimientos.GetDataByIdDia(mainWin.menu.EfectivoCaja.IdDia));
+
 
                 this.ReportViewer1.LocalReport.DataSources.Clear();
 
@@ -81,6 +84,7 @@ namespace CajaBanco
                 this.ReportViewer1.LocalReport.DataSources.Add(SdiasCaja);
                 this.ReportViewer1.LocalReport.DataSources.Add(SestadoInicio);
                 this.ReportViewer1.LocalReport.DataSources.Add(SestadoCierre);
+                this.ReportViewer1.LocalReport.DataSources.Add(Smov);
 
                 this.ReportViewer1.RefreshReport();
 
@@ -102,10 +106,11 @@ namespace CajaBanco
                 ReportParameter rp6 = new ReportParameter("Monto", datos.monto);
                 ReportParameter rp7 = new ReportParameter("TipoTotal", datos.tipototal);
                 ReportParameter rp8 = new ReportParameter("Fecha", datos.fecha.ToString());
+                ReportParameter rp9 = new ReportParameter("IdNoTrans", datos.idNoTrans);
 
                 ReportViewer1.LocalReport.DataSources.Clear();
                 
-                ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2, rp3,rp4,rp5,rp6,rp7,rp8 });
+                ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { rp1, rp2, rp3,rp4,rp5,rp6,rp7,rp8,rp9 });
 
                 this.ReportViewer1.RefreshReport();
             }

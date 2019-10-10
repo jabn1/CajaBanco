@@ -105,7 +105,7 @@ namespace CajaBanco
                     BtRealizarTrans_Click(null,null);
                     break;
                 case Key.F12:
-                    // TO DO imprimir
+                    BtReporteTrans_Click(null,null);
                     break;
                 case Key.Escape:
                     BtCliente_Click(null, null);
@@ -151,7 +151,25 @@ namespace CajaBanco
                 {
                     listaBM[tbSender.Name] = value;
                     tbSender.Text = value.ToString();
-
+                    if(tipo == TipoTransaccion.Retiro || tipo == TipoTransaccion.RetiroFueraLinea)
+                    {
+                        var ef = mainWin.menu.EfectivoCaja;
+                        if (ef.Bm2000 < int.Parse(tb2000p.Text) ||
+                            ef.Bm1000 < int.Parse(tb1000p.Text) ||
+                            ef.Bm500 < int.Parse(tb500p.Text) ||
+                            ef.Bm200 < int.Parse(tb200p.Text) ||
+                            ef.Bm100 < int.Parse(tb100p.Text) ||
+                            ef.Bm50 < int.Parse(tb50p.Text) ||
+                            ef.Bm25 < int.Parse(tb25p.Text) ||
+                            ef.Bm10 < int.Parse(tb10p.Text) ||
+                            ef.Bm5 < int.Parse(tb5p.Text) ||
+                            ef.Bm1 < int.Parse(tb1p.Text))
+                        {
+                            tbSender.Text = "0";
+                            MessageBox.Show($"La caja no posee suficientes unidades de RD$ {valoresBM[tbSender.Name]}");
+                            return;
+                        }
+                    }
                 }
                 else { tbSender.Text = "0"; }
                 tbSender.CaretIndex = int.MaxValue;
@@ -256,7 +274,8 @@ namespace CajaBanco
             catch
             {
                 MessageBox.Show("Error procesando la transaccion.");
-                MainWindow.log.Error("Error durante la operacion RealizarTransaccion.");
+                MainWindow.log.Error($"Error durante la operacion RealizarTransaccion. " +
+                    $"Cedula: {mainWin.resCliente.cliente.Cedula}, Numero Cuenta {numeroCuenta}, Monto: {monto},Tipo: {tipo}");
                 return;
             }
 
@@ -316,11 +335,14 @@ namespace CajaBanco
             datosRep.nombre = datosTransaccion.ApellidoClienteCuenta + ", " + datosTransaccion.NombreClienteCuenta;
             datosRep.monto = monto.ToString();
 
-            transCompleted = true;
+            
+
+
+            
             TransacCajaTableAdapter transacCaja = new TransacCajaTableAdapter();
             EstadoCajaTableAdapter estadoCaja = new EstadoCajaTableAdapter();
             MovimientosCajaTableAdapter movimientos = new MovimientosCajaTableAdapter();
-
+            int idTransac = 0;
             int idDia = ef.IdDia;
             int idCajero = mainWin.login.idCajeroInt;
             decimal totalCaja = ef.TotalCaja;
@@ -338,7 +360,7 @@ namespace CajaBanco
                     int idEstado = (int)estadoCaja.InsertReturnIdEstado(idDia, DateTime.Now, (int)tipoAccion, idCajero, totalCaja, ef.Bm2000, ef.Bm1000, ef.Bm500, ef.Bm200, ef.Bm100, ef.Bm50, ef.Bm25, ef.Bm10, ef.Bm5, ef.Bm1);
 
 
-                    int idTransac = (int)transacCaja.InsertTransacReturnId(
+                        idTransac = (int)transacCaja.InsertTransacReturnId(
                         (int)datosTransaccion.NumeroTransaccion,
                         monto,
                         (int)tipo,
@@ -359,6 +381,23 @@ namespace CajaBanco
                 }
             }
 
+            if (datosTransaccion.NumeroTransaccion == 0)
+            {
+                if(idTransac == 0)
+                {
+                    datosRep.idNoTrans = "---------";
+                }
+                else
+                {
+                    datosRep.idNoTrans = "C-" + idTransac.ToString();
+                }
+                
+            }
+            else
+            {
+                datosRep.idNoTrans = datosTransaccion.NumeroTransaccion.ToString();
+            }
+            transCompleted = true;
         }
     }
 }

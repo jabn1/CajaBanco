@@ -29,7 +29,7 @@ namespace CajaBanco
         public EstadoCaja()
         {
             InitializeComponent();
-
+            btCliente.Focus();
             //EstadoCajaTableAdapter estadoCajaTableAdapter = new EstadoCajaTableAdapter();
             //var datos = estadoCajaTableAdapter.GetData().Rows;
             //var datos = new DataSetDBCaja.EstadoCajaDataTable();

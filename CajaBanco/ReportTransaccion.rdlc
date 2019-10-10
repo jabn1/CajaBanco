@@ -100,7 +100,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>0.81819in</Top>
+            <Top>1.13764in</Top>
             <Left>0.155in</Left>
             <Height>0.25in</Height>
             <Width>3.48042in</Width>
@@ -142,7 +142,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>1.76958in</Top>
+            <Top>2.08903in</Top>
             <Left>0.155in</Left>
             <Height>0.25in</Height>
             <Width>3.48042in</Width>
@@ -176,7 +176,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>1.13764in</Top>
+            <Top>1.45709in</Top>
             <Left>0.155in</Left>
             <Height>0.25in</Height>
             <Width>3.48042in</Width>
@@ -210,7 +210,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>1.45708in</Top>
+            <Top>1.77653in</Top>
             <Left>0.155in</Left>
             <Height>0.25in</Height>
             <Width>3.48042in</Width>
@@ -225,8 +225,42 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox8">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>No. Transaccion: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!IdNoTrans.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox8</rd:DefaultName>
+            <Top>0.81819in</Top>
+            <Left>0.155in</Left>
+            <Height>0.25in</Height>
+            <Width>3.48042in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>2.17708in</Height>
+        <Height>2.88541in</Height>
         <Style />
       </Body>
       <Width>5.16976in</Width>
@@ -334,11 +368,15 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="IdNoTrans">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
+      <NumberOfRows>3</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -379,6 +417,11 @@
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>Fecha</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>IdNoTrans</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

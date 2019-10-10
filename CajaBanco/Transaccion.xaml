@@ -24,7 +24,7 @@
             <TextBox x:Name="tbTotalBM" HorizontalAlignment="Left" Height="23" Margin="205,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" IsReadOnly="True" Focusable="False" Text="0"/>
             <TextBlock HorizontalAlignment="Left" Margin="500,97,0,0" TextWrapping="Wrap" Text="Mensaje sobre transaccion:" VerticalAlignment="Top"/>
             <Button x:Name="BtRealizarTrans" Content="Realizar Transaccion [F11]" HorizontalAlignment="Left" Margin="500,248,0,0" VerticalAlignment="Top" Width="170" Click="BtRealizarTrans_Click"/>
-            <Button x:Name="BtReporteTrans" Content="Imprimir Reporte [F12]" HorizontalAlignment="Left" Margin="500,298,0,0" VerticalAlignment="Top" Width="170" Click="BtReporteTrans_Click"/>
+            <Button x:Name="BtReporteTrans" Content="Generar Reporte [F12]" HorizontalAlignment="Left" Margin="500,298,0,0" VerticalAlignment="Top" Width="170" Click="BtReporteTrans_Click"/>
             <TextBox x:Name="tbCliente" HorizontalAlignment="Left" Height="23" Margin="205,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" IsReadOnly="True" Focusable="False"/>
             <TextBlock x:Name="tblockCli" HorizontalAlignment="Left" Margin="161,118,0,0" TextWrapping="Wrap" Text="Cliente:" VerticalAlignment="Top"/>
 

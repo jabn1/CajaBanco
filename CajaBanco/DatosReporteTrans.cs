@@ -8,7 +8,7 @@ namespace CajaBanco
 {
     public class DatosReporteTrans
     {
-        public string titulo, sucursal, nombre, monto, tipototal;
+        public string titulo, sucursal, nombre, monto, tipototal, idNoTrans;
         public DateTime fecha;
         public int idCajero, cuenta;
         
