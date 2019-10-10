@@ -53,6 +53,14 @@ namespace CajaBanco
         {
             mainWin = mainWindow;
             tipo = tipoTrans;
+            if (mainWin.menu.HayConexion)
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            }
+            else
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+            }
         }
 
         private void BtCliente_Click(object sender, RoutedEventArgs e)

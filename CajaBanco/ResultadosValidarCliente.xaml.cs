@@ -56,7 +56,14 @@ namespace CajaBanco
             var cuentasCliente = new List<string>() { cliente.NumeroCuenta.ToString() };
             dgCuentas.ItemsSource = cuentasCliente;
 
-
+            if (mainWin.menu.HayConexion)
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            }
+            else
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+            }
         }
 
         private void BtDepositar_Click(object sender, RoutedEventArgs e)

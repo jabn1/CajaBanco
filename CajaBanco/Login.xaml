@@ -17,8 +17,6 @@
         <TextBlock HorizontalAlignment="Center" Margin="0,188,120,0" TextWrapping="Wrap" Text="Usuario:" VerticalAlignment="Top" Width="45" TextAlignment="Right"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,235,120,0" TextWrapping="Wrap" Text="Clave:" VerticalAlignment="Top" Width="45" TextAlignment="Right"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,86,0,0" TextWrapping="Wrap" Text="Iniciar Sesion:" VerticalAlignment="Top" FontSize="36"/>
-        <Grid>
-            <Ellipse x:Name="estadoConexion" Fill="#FF32FF32" HorizontalAlignment="Left" Height="30" Margin="10,0,0,10" Stroke="Black" VerticalAlignment="Bottom" Width="30"/>
-        </Grid>
+        <Grid/>
     </Grid>
 </Page>

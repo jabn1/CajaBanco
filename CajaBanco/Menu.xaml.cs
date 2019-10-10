@@ -25,7 +25,7 @@ namespace CajaBanco
         MainWindow mainWin;
         bool hayDiaIniciado;
         EfectivoEnCaja efectivoCaja;
-        bool hayConexion;
+        private bool hayConexion;
 
 
         public EfectivoEnCaja EfectivoCaja { get => efectivoCaja; set => efectivoCaja = value; }
@@ -171,6 +171,16 @@ namespace CajaBanco
             // Ahora mismo solo pone false
 
             hayConexion = false;
+
+            if (hayConexion)
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            }
+            else
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+            }
+
         }
 
         private void BtTransFuera_Click(object sender, RoutedEventArgs e)

@@ -30,6 +30,15 @@ namespace CajaBanco
         public ValidarCliente(MainWindow mainWindow):this()
         {
             mainWin = mainWindow;
+            if (mainWin.menu.HayConexion)
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            }
+            else
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+            }
+
         }
 
         private void BtProcesar_Click(object sender, RoutedEventArgs e)

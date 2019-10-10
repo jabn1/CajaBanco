@@ -53,6 +53,14 @@ namespace CajaBanco
             mainWin = mainWindow;
             tbCajero.Text = mainWin.login.idCajero;
             tbSucursal.Text = mainWin.login.nomSucursal;
+            if (mainWin.menu.HayConexion)
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            }
+            else
+            {
+                estadoConexion.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+            }
         }
 
 
