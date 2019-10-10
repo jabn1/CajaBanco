@@ -114,6 +114,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TransFuera.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ValidarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +166,9 @@
     <Compile Include="DatosTransaccion.cs" />
     <Compile Include="Transaccion.xaml.cs">
       <DependentUpon>Transaccion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransFuera.xaml.cs">
+      <DependentUpon>TransFuera.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValidarCliente.xaml.cs">
       <DependentUpon>ValidarCliente.xaml</DependentUpon>

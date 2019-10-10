@@ -2,10 +2,13 @@
 <xs:schema id="DataSetDBCaja" targetNamespace="http://tempuri.org/DataSetDBCaja.xsd" xmlns:mstns="http://tempuri.org/DataSetDBCaja.xsd" xmlns="http://tempuri.org/DataSetDBCaja.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="4" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBAppCajaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBAppCajaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CajaBanco.Properties.Settings.GlobalReference.Default.DBAppCajaConnectionString" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBAppCajaConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBAppCajaConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CajaBanco.Properties.Settings.GlobalReference.Default.DBAppCajaConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBAppCajaConnectionString2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBAppCajaConnectionString2 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CajaBanco.Properties.Settings.GlobalReference.Default.DBAppCajaConnectionString2" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBAppCajaConnectionString3" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBAppCajaConnectionString3 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CajaBanco.Properties.Settings.GlobalReference.Default.DBAppCajaConnectionString2" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBAppCajaConnectionString4" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBAppCajaConnectionString4 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CajaBanco.Properties.Settings.GlobalReference.Default.DBAppCajaConnectionString2" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CajerosTableAdapter" GeneratorDataComponentClassName="CajerosTableAdapter" Name="Cajeros" UserDataComponentName="CajerosTableAdapter">
@@ -877,6 +880,46 @@ SELECT IdTransac, NumTransac, Monto, Tipo, FechaCreacion, CedulaCliente, EstadoT
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TransCajaViewTableAdapter" GeneratorDataComponentClassName="TransCajaViewTableAdapter" Name="TransCajaView" UserDataComponentName="TransCajaViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBAppCajaConnectionString4 (Settings)" DbObjectName="dbo.TransCajaView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdTransac, NumTransac, Monto, Tipo, FechaCreacion, CedulaCliente, EstadoTransac, NumCuenta, IdTransacMov, NombreTipoT, NombreEstadoT, IdCajero, IdDia FROM dbo.TransCajaView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdTransac" DataSetColumn="IdTransac" />
+              <Mapping SourceColumn="NumTransac" DataSetColumn="NumTransac" />
+              <Mapping SourceColumn="Monto" DataSetColumn="Monto" />
+              <Mapping SourceColumn="Tipo" DataSetColumn="Tipo" />
+              <Mapping SourceColumn="FechaCreacion" DataSetColumn="FechaCreacion" />
+              <Mapping SourceColumn="CedulaCliente" DataSetColumn="CedulaCliente" />
+              <Mapping SourceColumn="EstadoTransac" DataSetColumn="EstadoTransac" />
+              <Mapping SourceColumn="NumCuenta" DataSetColumn="NumCuenta" />
+              <Mapping SourceColumn="IdTransacMov" DataSetColumn="IdTransacMov" />
+              <Mapping SourceColumn="NombreTipoT" DataSetColumn="NombreTipoT" />
+              <Mapping SourceColumn="NombreEstadoT" DataSetColumn="NombreEstadoT" />
+              <Mapping SourceColumn="IdCajero" DataSetColumn="IdCajero" />
+              <Mapping SourceColumn="IdDia" DataSetColumn="IdDia" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DBAppCajaConnectionString4 (Settings)" DbObjectName="[C:\USERS\JOSE\DESKTOP\ONEDRIVE - INTEC\C#\CAJABANCO\CAJABANCO\DBAPPCAJA.MDF].dbo.SelectTransViewByIdCajero" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillByIdCajero" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdCajero" GeneratorSourceName="FillByIdCajero" GetMethodModifier="Public" GetMethodName="GetDataByIdCajero" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdCajero" UserSourceName="FillByIdCajero">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SelectTransViewByIdCajero</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajero" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1065,6 +1108,43 @@ SELECT IdTransac, NumTransac, Monto, Tipo, FechaCreacion, CedulaCliente, EstadoT
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="TransCajaView" msprop:Generator_TableClassName="TransCajaViewDataTable" msprop:Generator_TableVarName="tableTransCajaView" msprop:Generator_TablePropName="TransCajaView" msprop:Generator_RowDeletingName="TransCajaViewRowDeleting" msprop:Generator_RowChangingName="TransCajaViewRowChanging" msprop:Generator_RowEvHandlerName="TransCajaViewRowChangeEventHandler" msprop:Generator_RowDeletedName="TransCajaViewRowDeleted" msprop:Generator_UserTableName="TransCajaView" msprop:Generator_RowChangedName="TransCajaViewRowChanged" msprop:Generator_RowEvArgName="TransCajaViewRowChangeEvent" msprop:Generator_RowClassName="TransCajaViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdTransac" msprop:Generator_ColumnVarNameInTable="columnIdTransac" msprop:Generator_ColumnPropNameInRow="IdTransac" msprop:Generator_ColumnPropNameInTable="IdTransacColumn" msprop:Generator_UserColumnName="IdTransac" type="xs:int" />
+              <xs:element name="NumTransac" msprop:Generator_ColumnVarNameInTable="columnNumTransac" msprop:Generator_ColumnPropNameInRow="NumTransac" msprop:Generator_ColumnPropNameInTable="NumTransacColumn" msprop:Generator_UserColumnName="NumTransac" type="xs:int" />
+              <xs:element name="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" msprop:Generator_UserColumnName="Monto" type="xs:decimal" />
+              <xs:element name="Tipo" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" type="xs:int" />
+              <xs:element name="FechaCreacion" msprop:Generator_ColumnVarNameInTable="columnFechaCreacion" msprop:Generator_ColumnPropNameInRow="FechaCreacion" msprop:Generator_ColumnPropNameInTable="FechaCreacionColumn" msprop:Generator_UserColumnName="FechaCreacion" type="xs:dateTime" />
+              <xs:element name="CedulaCliente" msprop:Generator_ColumnVarNameInTable="columnCedulaCliente" msprop:Generator_ColumnPropNameInRow="CedulaCliente" msprop:Generator_ColumnPropNameInTable="CedulaClienteColumn" msprop:Generator_UserColumnName="CedulaCliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EstadoTransac" msprop:Generator_ColumnVarNameInTable="columnEstadoTransac" msprop:Generator_ColumnPropNameInRow="EstadoTransac" msprop:Generator_ColumnPropNameInTable="EstadoTransacColumn" msprop:Generator_UserColumnName="EstadoTransac" type="xs:int" />
+              <xs:element name="NumCuenta" msprop:Generator_ColumnVarNameInTable="columnNumCuenta" msprop:Generator_ColumnPropNameInRow="NumCuenta" msprop:Generator_ColumnPropNameInTable="NumCuentaColumn" msprop:Generator_UserColumnName="NumCuenta" type="xs:int" />
+              <xs:element name="IdTransacMov" msprop:Generator_ColumnVarNameInTable="columnIdTransacMov" msprop:Generator_ColumnPropNameInRow="IdTransacMov" msprop:Generator_ColumnPropNameInTable="IdTransacMovColumn" msprop:Generator_UserColumnName="IdTransacMov" type="xs:int" />
+              <xs:element name="NombreTipoT" msprop:Generator_ColumnVarNameInTable="columnNombreTipoT" msprop:Generator_ColumnPropNameInRow="NombreTipoT" msprop:Generator_ColumnPropNameInTable="NombreTipoTColumn" msprop:Generator_UserColumnName="NombreTipoT">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreEstadoT" msprop:Generator_ColumnVarNameInTable="columnNombreEstadoT" msprop:Generator_ColumnPropNameInRow="NombreEstadoT" msprop:Generator_ColumnPropNameInTable="NombreEstadoTColumn" msprop:Generator_UserColumnName="NombreEstadoT">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IdCajero" msprop:Generator_ColumnVarNameInTable="columnIdCajero" msprop:Generator_ColumnPropNameInRow="IdCajero" msprop:Generator_ColumnPropNameInTable="IdCajeroColumn" msprop:Generator_UserColumnName="IdCajero" type="xs:int" />
+              <xs:element name="IdDia" msprop:Generator_ColumnVarNameInTable="columnIdDia" msprop:Generator_ColumnPropNameInRow="IdDia" msprop:Generator_ColumnPropNameInTable="IdDiaColumn" msprop:Generator_UserColumnName="IdDia" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1105,6 +1185,10 @@ SELECT IdTransac, NumTransac, Monto, Tipo, FechaCreacion, CedulaCliente, EstadoT
     </xs:unique>
     <xs:unique name="TransacCaja_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:TransacCaja" />
+      <xs:field xpath="mstns:IdTransac" />
+    </xs:unique>
+    <xs:unique name="TransCajaView_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TransCajaView" />
       <xs:field xpath="mstns:IdTransac" />
     </xs:unique>
   </xs:element>

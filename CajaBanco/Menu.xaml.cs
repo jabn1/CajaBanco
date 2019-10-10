@@ -120,7 +120,7 @@ namespace CajaBanco
                     BtEstadoCaja_Click(null, null);
                     break;
                 case Key.F5:
-
+                    BtTransFuera_Click(null,null);
                     break;
                 
                 case Key.Escape:
@@ -173,5 +173,10 @@ namespace CajaBanco
             hayConexion = false;
         }
 
+        private void BtTransFuera_Click(object sender, RoutedEventArgs e)
+        {
+            mainWin.transFuera = new TransFuera(mainWin);
+            mainWin.Content = mainWin.transFuera;
+        }
     }
 }

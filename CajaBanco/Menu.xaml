@@ -18,7 +18,7 @@
         <TextBlock HorizontalAlignment="Center" Margin="0,59,0,0" TextWrapping="Wrap" Text="Opciones:" VerticalAlignment="Top" FontSize="36"/>
         
         
-        <Button x:Name="btTransFuera" Content="Transacciones fuera de linea [F5]" HorizontalAlignment="Center" Margin="322,350,294,0" VerticalAlignment="Top" Width="184"/>
+        <Button x:Name="btTransFuera" Content="Transacciones fuera de linea [F5]" HorizontalAlignment="Center" Margin="322,350,294,0" VerticalAlignment="Top" Width="184" Click="BtTransFuera_Click"/>
 
     </Grid>
         <Grid>

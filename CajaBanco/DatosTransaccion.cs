@@ -26,7 +26,11 @@ namespace CajaBanco
     }
     public class DatosTransaccion
     {
-        
+
+        private int idCajero;
+        private DateTime fecha;
+        private int idTrans;
+
         private EstadosTransaccion estadoTrans;
         private TipoTransaccion tipoTrans;
         private int numeroTransaccion;
@@ -34,6 +38,7 @@ namespace CajaBanco
         private string nombreClienteCuenta, apellidoClienteCuenta;
         private decimal monto;
         private string cedulaCliente;
+        private string nombreTipo, nombreEstadoTrans;
 
         public EstadosTransaccion EstadoTrans { get => estadoTrans; set => estadoTrans = value; }
         public TipoTransaccion TipoTrans { get => tipoTrans; set => tipoTrans = value; }
@@ -43,5 +48,10 @@ namespace CajaBanco
         public decimal Monto { get => monto; set => monto = value; }
         public string CedulaCliente { get => cedulaCliente; set => cedulaCliente = value; }
         public int NumeroCuenta { get => numeroCuenta; set => numeroCuenta = value; }
+        public int IdCajero { get => idCajero; set => idCajero = value; }
+        public DateTime Fecha { get => fecha; set => fecha = value; }
+        public int IdTrans { get => idTrans; set => idTrans = value; }
+        public string NombreTipo { get => nombreTipo; set => nombreTipo = value; }
+        public string NombreEstadoTrans { get => nombreEstadoTrans; set => nombreEstadoTrans = value; }
     }
 }

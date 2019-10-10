@@ -37,11 +37,44 @@ namespace CajaBanco.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DBAppCaja.mdf" +
-            ";Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Jose\\Desktop\\OneDriv" +
+            "e - INTEC\\c#\\CajaBanco\\CajaBanco\\DBAppCaja.mdf;Integrated Security=True")]
         public string DBAppCajaConnectionString1 {
             get {
                 return ((string)(this["DBAppCajaConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Jose\\Desktop\\OneDriv" +
+            "e - INTEC\\c#\\CajaBanco\\CajaBanco\\DBAppCaja.mdf;Integrated Security=True")]
+        public string DBAppCajaConnectionString2 {
+            get {
+                return ((string)(this["DBAppCajaConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Jose\\Desktop\\OneDriv" +
+            "e - INTEC\\c#\\CajaBanco\\CajaBanco\\DBAppCaja.mdf;Integrated Security=True")]
+        public string DBAppCajaConnectionString3 {
+            get {
+                return ((string)(this["DBAppCajaConnectionString3"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DBAppCaja.mdf" +
+            ";Integrated Security=True")]
+        public string DBAppCajaConnectionString4 {
+            get {
+                return ((string)(this["DBAppCajaConnectionString4"]));
             }
         }
     }

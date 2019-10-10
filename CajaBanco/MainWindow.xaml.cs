@@ -35,6 +35,7 @@ namespace CajaBanco
         public InicioDia inicioDia;
         public Reporte reporte;
         public CierreDia cierreDia;
+        public TransFuera transFuera;
 
         public static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 

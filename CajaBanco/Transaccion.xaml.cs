@@ -357,27 +357,27 @@ namespace CajaBanco
                 try
                 {
 
-                    int idEstado = (int)estadoCaja.InsertReturnIdEstado(idDia, DateTime.Now, (int)tipoAccion, idCajero, totalCaja, ef.Bm2000, ef.Bm1000, ef.Bm500, ef.Bm200, ef.Bm100, ef.Bm50, ef.Bm25, ef.Bm10, ef.Bm5, ef.Bm1);
+                    int idEstado = (int)estadoCaja.InsertReturnIdEstado(
+                        idDia, DateTime.Now, (int)tipoAccion, idCajero, totalCaja, ef.Bm2000, 
+                        ef.Bm1000, ef.Bm500, ef.Bm200, ef.Bm100, ef.Bm50, ef.Bm25, ef.Bm10, ef.Bm5, ef.Bm1);
 
 
-                        idTransac = (int)transacCaja.InsertTransacReturnId(
-                        (int)datosTransaccion.NumeroTransaccion,
-                        monto,
-                        (int)tipo,
-                        DateTime.Now,
-                        datosTransaccion.CedulaCliente,
-                        (int)datosTransaccion.EstadoTrans,
-                        (int)datosTransaccion.NumeroCuenta);
+                    idTransac = (int)transacCaja.InsertTransacReturnId(
+                        (int)datosTransaccion.NumeroTransaccion, monto,(int)tipo, DateTime.Now, datosTransaccion.CedulaCliente,
+                        (int)datosTransaccion.EstadoTrans, (int)datosTransaccion.NumeroCuenta);
 
-                    movimientos.Insert(idDia, idCajero, DateTime.Now, (int)tipoAccion, BMTrans.Bm2000, BMTrans.Bm1000, BMTrans.Bm500,
-                        BMTrans.Bm200, BMTrans.Bm100, BMTrans.Bm50, BMTrans.Bm25, BMTrans.Bm10, BMTrans.Bm5, BMTrans.Bm1, idTransac, idEstado, monto, datosTransaccion.NumeroTransaccion);
+                    movimientos.Insert(
+                        idDia, idCajero, DateTime.Now, (int)tipoAccion, BMTrans.Bm2000, BMTrans.Bm1000, BMTrans.Bm500,
+                        BMTrans.Bm200, BMTrans.Bm100, BMTrans.Bm50, BMTrans.Bm25, BMTrans.Bm10, BMTrans.Bm5, BMTrans.Bm1,
+                        idTransac, idEstado, monto, datosTransaccion.NumeroTransaccion);
 
                     ts.Complete();
                 }
                 catch
                 {
                     MessageBox.Show("Error guardando registros.");
-                    MainWindow.log.Error("Error de transaccion durante operaciones INSERT en EstadosCaja, MovimientosCaja y TransacCaja");
+                    MainWindow.log.Error("Error de transaccion durante operaciones INSERT en EstadosCaja, MovimientosCaja y TransacCaja"+
+                         $"Cedula: {mainWin.resCliente.cliente.Cedula}, Numero Cuenta {numeroCuenta}, Monto: {monto},Tipo: {tipo}");
                 }
             }
 
