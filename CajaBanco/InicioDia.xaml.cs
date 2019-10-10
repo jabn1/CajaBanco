@@ -177,12 +177,14 @@ namespace CajaBanco
                     mainWin.menu.EfectivoCaja.TotalCaja = totalCaja;
                     MessageBox.Show("La operacion se realizo exitosamente.");
                     mainWin.Content = mainWin.menu;
+                    MainWindow.log.Info($"Se realizo inicio del dia. Id cajero: {mainWin.login.idCajeroInt}; Id Dia: {idDia}");
                     ts.Complete();
                 }
                 catch
                 {
                     MessageBox.Show("La operacion no pudo ser realizada.");
-                    MainWindow.log.Info("Error en transaccion incio de dia");
+                    MainWindow.log.Warn($"Error en transaccion incio de dia. Id cajero: {mainWin.login.idCajeroInt}");
+
                 }                                     
             }
             

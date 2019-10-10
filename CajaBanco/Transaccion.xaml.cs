@@ -187,6 +187,50 @@ namespace CajaBanco
             {
                 // Aqui va el codigo de realizar transaccion cuando hay conexion con la capa de integracion
                 // Los datos se obtienen con el web service de la capa de integracion
+                EstadosTransaccion estadoT = 0;
+
+                //Realizar aqui el llamado al web service
+
+                if (estadoT == EstadosTransaccion.Exitosa)
+                {
+                    //Si el web service retorno los datos correctamente asignarlos al objeto de DatosTransaccion
+                    trans = new DatosTransaccion();
+                    
+                    //trans.EstadoTrans = estadoT;
+                    //trans.NumeroTransaccion = 
+                    //trans.TipoTrans = tipoTrans;
+                    //trans.NumeroCuenta = numeroCuenta;
+                    //trans.Monto = monto;
+                    //trans.CedulaCliente = cedula;
+                    //trans.ApellidoClienteCuenta = 
+                    //trans.NombreClienteCuenta = 
+
+                }
+                else if (estadoT == EstadosTransaccion.CuentaSinFondos)
+                {
+                    TbMensaje.Text = "Cuenta sin fondos.";
+                    MessageBox.Show("Cuenta sin fondos.");
+                    return null;
+                }
+                else if (estadoT == EstadosTransaccion.CuentaNoExiste)
+                {
+                    TbMensaje.Text = "Cuenta no existe.";
+                    MessageBox.Show("Cuenta no existe.");
+                    return null;
+                }
+                else if (estadoT == EstadosTransaccion.CedulaSinPermiso)
+                {
+                    TbMensaje.Text = "Cedula sin permiso.";
+                    MessageBox.Show("Cedula sin permiso.");
+                    return null;
+                }
+                else 
+                {
+                    TbMensaje.Text = "Error no esperado en transaccion.";
+                    MessageBox.Show("Error no eperado en transaccion.");
+                    MainWindow.log.Warn($"El web service de transaccion retorno un estado de transaccion invalido. {(int)estadoT}");
+                    return null;
+                }
             }
             else
             {
@@ -242,6 +286,7 @@ namespace CajaBanco
             try
             {
                 datosTransaccion = RealizarTransaccion(mainWin.resCliente.cliente.Cedula, numeroCuenta, monto, tipo);
+                if (datosTransaccion == null) return;
                 transCompleted = true;
                 if(datosTransaccion.EstadoTrans == EstadosTransaccion.Exitosa)
                 {
@@ -398,6 +443,9 @@ namespace CajaBanco
                 datosRep.idNoTrans = datosTransaccion.NumeroTransaccion.ToString();
             }
             transCompleted = true;
+            MainWindow.log.Info($"Transaccion completada " +
+                $"Id trans: {datosTransaccion.IdTrans};  Numero trans: {datosTransaccion.NumeroTransaccion}; " +
+                $"Tipo trans: {datosTransaccion.NombreTipo}; Numero de cuenta: {datosTransaccion.NumeroCuenta}; Id cajero: {mainWin.login.idCajeroInt}");
         }
     }
 }
