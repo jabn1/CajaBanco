@@ -98,7 +98,7 @@ namespace CajaBanco
                 TransacCajaTableAdapter transacCaja = new TransacCajaTableAdapter();
                 foreach(var trans in datos)
                 {
-                    EstadosTransaccion newEstado;
+                    EstadosTransaccion newEstado = 0;
                     //Aqui va el codigo para enviar todas las transacciones fuera de linea mediante el web service de capa integracion
                     transacCaja.UpdateQueryTransacCaja((int)newEstado,trans.IdTrans);
 

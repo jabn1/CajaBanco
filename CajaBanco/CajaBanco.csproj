@@ -68,6 +68,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -142,6 +144,11 @@
       <DependentUpon>CierreDia.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs" />
+    <Compile Include="Connected Services\IntegracionService1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="DataSetDBCaja1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,6 +232,16 @@
     <EmbeddedResource Include="ReportInicioDia.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="Connected Services\IntegracionService1\CajaBanco.IntegracionService1.Cliente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\IntegracionService1\CajaBanco.IntegracionService1.DummyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\IntegracionService1\CajaBanco.IntegracionService1.ValidarClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\IntegracionService1\CajaService.wsdl" />
     <None Include="DataSetDBCaja.xsc">
       <DependentUpon>DataSetDBCaja.xsd</DependentUpon>
     </None>
@@ -250,6 +267,13 @@
     <Resource Include="backgroundCaja.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <None Include="Connected Services\IntegracionService1\CajaService.disco" />
+    <None Include="Connected Services\IntegracionService1\configuration91.svcinfo" />
+    <None Include="Connected Services\IntegracionService1\configuration.svcinfo" />
+    <None Include="Connected Services\IntegracionService1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="DBAppCaja.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -285,6 +309,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\IntegracionService1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

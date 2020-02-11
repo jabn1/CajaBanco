@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://bankingintegrator20191010051554.azurewebsites.net/CajaService.asmx?wsdl" docRef="https://bankingintegrator20191010051554.azurewebsites.net/CajaService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://bankingintegrator20191010051554.azurewebsites.net/CajaService.asmx" xmlns:q1="http://tempuri.org/" binding="q1:CajaServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://bankingintegrator20191010051554.azurewebsites.net/CajaService.asmx" xmlns:q2="http://tempuri.org/" binding="q2:CajaServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

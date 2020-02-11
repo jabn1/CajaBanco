@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using CajaBanco.IntegracionService1;
 namespace CajaBanco
 {
     /// <summary>
@@ -83,6 +83,24 @@ namespace CajaBanco
             {
                 // Aqui va el codigo de validar cliente cuando hay conexion con la capa de integracion
                 // Los datos se obtienen con el web service de la capa de integracion
+
+                CajaServiceSoapClient cajaService = new CajaServiceSoapClient();
+                try
+                {
+                   var cli = cajaService.ValidarCliente(cedula, mainWin.login.idCajeroInt.ToString());
+
+                    cliente.Cedula = cedula;
+                    cliente.Nombres = cli.Nombres;
+                    cliente.Apellidos = cli.Apellidos;
+                    cliente.NumeroCuenta = cli.Cuenta.NumeroCuenta;
+                    cliente.Tipo = TiposCliente.ClienteNormal;
+                }
+                catch
+                {
+
+                }
+                
+
             }
             else
             {

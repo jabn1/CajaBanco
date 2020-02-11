@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static CajaBanco.DataSetDBCaja;
+using CajaBanco.IntegracionService1;
 
 namespace CajaBanco
 {
@@ -36,7 +37,7 @@ namespace CajaBanco
         {
             InitializeComponent();
 
-            RevisarConexion();
+            
             Focus();
             
         }
@@ -44,7 +45,9 @@ namespace CajaBanco
         public Menu(MainWindow mainWindow) : this()
         {
             this.mainWin = mainWindow;
-            
+
+            RevisarConexion();
+
             tbCajero.Text = mainWin.login.idCajero;
             tbSucursal.Text = mainWin.login.nomSucursal;
 
@@ -170,7 +173,21 @@ namespace CajaBanco
             // con la capa de integracion
             // Ahora mismo solo pone false
 
-            hayConexion = false;
+            //CajaServiceSoapClient cajaService = new CajaServiceSoapClient();
+            //try
+            //{
+            //    string outPut = cajaService.Dummy(mainWin.login.idCajeroInt);
+            //    if(outPut != null)
+            //    {
+            //        hayConexion = true;
+            //    }
+            //}
+            //catch
+            {
+                hayConexion = false;
+            }
+
+            
 
             if (hayConexion)
             {
